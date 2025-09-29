@@ -3,6 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TodoModule } from './todo/todo.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
+import { TestServiceService } from './test-service/test-service.service';
+import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -17,8 +22,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
     }),
     TodoModule,
+    UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, TestServiceService],
 })
 export class AppModule {}
